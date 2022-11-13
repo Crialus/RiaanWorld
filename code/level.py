@@ -101,10 +101,10 @@ class Level:
                         if col == '0': sprite = Coin(tile_size, x, y, '../resources/graphics/coins/gold', 5)
                         if col == '1': sprite = Coin(tile_size, x, y, '../resources/graphics/coins/silver', 1)
                     if type == 'fg_palms':
-                        if col == '0': sprite = Palm(tile_size, x, y, '../resources/graphics/terrain/palm_small', randint(25, 45))
-                        if col == '1': sprite = Palm(tile_size, x, y, '../resources/graphics/terrain/palm_large', randint(50, 65))
+                        if col == '0': sprite = Palm(tile_size, x, y, '../resources/graphics/terrain/palm_small', randint(30, 45))
+                        if col == '1': sprite = Palm(tile_size, x, y, '../resources/graphics/terrain/palm_large', randint(15, 30))
                     if type == 'bg_palms':
-                        sprite = Palm(tile_size, x, y, '../resources/graphics/terrain/palm_bg', randint(50, 65))
+                        sprite = Palm(tile_size, x, y, '../resources/graphics/terrain/palm_bg', randint(25, 33))
                     if type == 'enemies':
                         sprite = Enemy(tile_size, x, y, 5)
                     if type == 'constraint':
