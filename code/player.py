@@ -15,9 +15,9 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft=pos)
 
         # Audio
-        self.jump_sound = pygame.mixer.Sound(os.path.join('../resources/audio/effects/jump.wav'))
+        self.jump_sound = pygame.mixer.Sound('../resources/audio/effects/jump.wav')
         self.jump_sound.set_volume(0.3)
-        self.hit_sound = pygame.mixer.Sound(os.path.join('../resources/audio/effects/hit.wav'))
+        self.hit_sound = pygame.mixer.Sound('../resources/audio/effects/hit.wav')
         self.hit_sound.set_volume(0.5)
 
         # Dust Particles
@@ -49,7 +49,7 @@ class Player(pygame.sprite.Sprite):
         self.hurt_time = 0
 
     def import_character_assets(self):
-        character_path = os.path.join('../resources/graphics/character/')
+        character_path = '../resources/graphics/character/'
         self.animations = {'idle': [], 'run': [], 'jump': [], 'fall': []}
 
         for animation in self.animations.keys():
