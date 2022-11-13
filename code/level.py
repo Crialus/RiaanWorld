@@ -1,4 +1,5 @@
 import pygame
+import os
 from tiles import Tile, StaticTile, Crate, Coin, Palm
 from settings import tile_size, screen_width, screen_height
 from player import Player
@@ -17,9 +18,9 @@ class Level:
         self.current_x = 0
 
         # Audio
-        self.coin_sound = pygame.mixer.Sound('../resources/audio/effects/coin.wav')
+        self.coin_sound = pygame.mixer.Sound(os.path.join('../resources/audio/effects/coin.wav'))
         self.coin_sound.set_volume(0.5)
-        self.stomp_sound = pygame.mixer.Sound('../resources/audio/effects/stomp.wav')
+        self.stomp_sound = pygame.mixer.Sound(os.path.join('../resources/audio/effects/stomp.wav'))
         self.stomp_sound.set_volume(0.8)
 
         # overworld connection
@@ -98,13 +99,13 @@ class Level:
                     if type == 'crates':
                         sprite = Crate(tile_size, x, y)
                     if type == 'coins':
-                        if col == '0': sprite = Coin(tile_size, x, y, '../resources/graphics/coins/gold', 5)
-                        if col == '1': sprite = Coin(tile_size, x, y, '../resources/graphics/coins/silver', 1)
+                        if col == '0': sprite = Coin(tile_size, x, y, os.path.join('../resources/graphics/coins/gold', 5))
+                        if col == '1': sprite = Coin(tile_size, x, y, os.path.join('../resources/graphics/coins/silver', 1))
                     if type == 'fg_palms':
-                        if col == '0': sprite = Palm(tile_size, x, y, '../resources/graphics/terrain/palm_small', randint(30, 45))
-                        if col == '1': sprite = Palm(tile_size, x, y, '../resources/graphics/terrain/palm_large', randint(15, 30))
+                        if col == '0': sprite = Palm(tile_size, x, y, os.path.join('../resources/graphics/terrain/palm_small', randint(30, 45)))
+                        if col == '1': sprite = Palm(tile_size, x, y, os.path.join('../resources/graphics/terrain/palm_large', randint(15, 30)))
                     if type == 'bg_palms':
-                        sprite = Palm(tile_size, x, y, '../resources/graphics/terrain/palm_bg', randint(25, 33))
+                        sprite = Palm(tile_size, x, y, os.path.join('../resources/graphics/terrain/palm_bg', randint(25, 33)))
                     if type == 'enemies':
                         sprite = Enemy(tile_size, x, y, 5)
                     if type == 'constraint':
@@ -122,7 +123,7 @@ class Level:
                    sprite = Player((x, y), self.display_surface, self.create_jump_particles, change_health)
                    self.player.add(sprite)
                 if col == '1':
-                    hat_surface = pygame.image.load('../resources/graphics/character/hat.png').convert_alpha()
+                    hat_surface = pygame.image.load(os.path.join('../resources/graphics/character/hat.png')).convert_alpha()
                     sprite = StaticTile(tile_size, x, y, hat_surface)
                     self.goal.add(sprite)
 
